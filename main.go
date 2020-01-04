@@ -17,7 +17,7 @@ const (
 	GAT_WAY  = "https://restapi.amap.com/v3/place/text"
 	geocodeRegeoEndPoint = "https://restapi.amap.com/v3/geocode/regeo"
 	GaodeMapKey = "881b1b4f317ba7714b3956475625199f"
-	PATH = "/Users/zhaoran/resource/高德品牌文件/"
+	PATH = "/Users/resource/高德品牌文件/"
 )
 
 type PoiRes struct {
