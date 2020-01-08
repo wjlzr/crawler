@@ -8,20 +8,22 @@ import (
 
 //写字符串到文件中
 func WriteString(str string, fileName string) {
-	dstFile,err := os.Create(fileName)
+	dstFile, err := os.Create(fileName)
 	if err != nil {
-		fmt.Println(err); return
+		fmt.Println(err)
+		return
 	}
 	defer dstFile.Close()
 	//s:="hello world"
-	dstFile.WriteString(str+"\n")
+	dstFile.WriteString(str + "\n")
 }
 
 //写入byte数据
 func WriteByte(data []byte, fileName string) {
-	dstFile,err := os.Create(fileName)
+	dstFile, err := os.Create(fileName)
 	if err != nil {
-		fmt.Println(err); return
+		fmt.Println(err)
+		return
 	}
 	defer dstFile.Close()
 	dstFile.Write(data)
@@ -36,13 +38,13 @@ func IsNil(i interface{}) bool {
 }
 
 //创建文件夹目录
-func Mkdir(_path string) (path string){
+func Mkdir(_path string) (path string) {
 
 	res, err := PathExists(_path)
-	if err != nil{
+	if err != nil {
 		panic("文件目录有问题请查验")
 	}
-	if res != true{
+	if res != true {
 		_ = os.MkdirAll(_path, os.ModePerm)
 	}
 	return _path
@@ -64,3 +66,14 @@ func PathExists(path string) (bool, error) {
 	}
 	return false, err
 }
+
+//func determineEncoding(r *bufio.Reader) encoding.Encoding {
+//	bytes, err := r.Peek(1024)
+//	if err != nil {
+//		fmt.Println("Ftcher error:%v", err)
+//		return unicode.UTF8
+//	}
+//
+//	e, _, _ := charset.DetermineEncoding(bytes, "")
+//	return e
+//}
